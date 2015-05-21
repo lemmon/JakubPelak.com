@@ -1,0 +1,78 @@
+// Vendor Prefixes
+// ------------------------------------------------------------ //
+
+// Box sizing
+.box-sizing(@box-model) {
+    -webkit-box-sizing:@box-model; // Safari <= 5
+       -moz-box-sizing:@box-model; // Firefox <= 19
+            box-sizing:@box-model;
+}
+.border-box() {
+    .box-sizing(border-box);
+}
+
+// Transitions
+.transition(@transition: @default-transition) {
+    -webkit-transition:@transition;
+       -moz-transition:@transition;
+         -o-transition:@transition;
+            transition:@transition;
+}
+.anim(@transition: @default-transition) {
+    .transition(@transition);
+}
+
+// Border Radius
+.border-radius(@border-radius: @default-border-radius) {
+    -webkit-border-radius:@border-radius;
+            border-radius:@border-radius;
+}
+
+// Box Shadow
+.box-shadow(@box-shadow: @default-box-shadow) {
+    -webkit-box-shadow:@box-shadow;
+            box-shadow:@box-shadow;
+}
+
+
+// Utilities
+// ------------------------------------------------------------ //
+
+// Clearfix
+.clearfix() {
+    *zoom:1;
+    &:before,
+    &:after {
+        content:" "; // 1
+        display:table; // 2
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height:0;
+    }
+    &:after {
+        clear:both;
+    }
+}
+
+// Text overflow
+.ellipsis() {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+// Image Replace
+.ir(@image, @w, @h) {
+    white-space:nowrap;
+    text-indent:100%;
+    overflow:hidden;
+    background-image:url(@image);
+    width:@w;
+    height:@h;
+}
+
+// Icon
+.icon(@icon) {
+    font-family:'FontAwesome';
+    content:@icon;
+}
