@@ -91,24 +91,102 @@ h1, h2, h3, h4, h5, h6 {
     margin:0 7px;
 }
 
+// Services
+// ------------------------------------------------------------ //
+
+.services {
+    header, ul {
+        display:none;
+    }
+    .row {
+        text-align:center;
+        .clearfix();
+        & > * {
+            float:left;
+            width:33.33%;
+            .border-box();
+        }
+    }
+    svg {
+        display:block;
+        width:80%;
+        height:auto;
+        max-width:192px - 32px;
+        max-height:100%;
+        margin:0 auto @margin * 2/3;
+        /*
+        border:10px dashed #000;
+        .border-radius(100%);
+        */
+        path,
+        ellipse {
+            //fill:@orange;
+            //fill:#CC4B7A;
+            //fill:#B23060;
+            //fill:#FFF377;
+            //fill:#37AFCC;
+            //fill:#399BB2;
+            fill:#1EB229;
+        }
+    }
+    p {
+        margin-top:5px;
+        font-size:@base-font-size - 4px;
+        line-height:@base-line-height - 6px;
+        color:mix(@text-color, @background-color, 80%);
+    }
+}
+
 // Portfolio
 // ------------------------------------------------------------ //
 
 .portfolio {
-    @m: @margin;
-    margin-top:-@m / 2;
-    margin-left:-@m;
-    .clearfix();
-    & > * {
-        float:left;
-        width:50%;
-        padding-left:@m;
-        margin-top:@m;
-        .border-box();
+    .row {
+        @m: @margin;
+        margin-top:-@m / 2;
+        margin-left:-@m;
+        .clearfix();
+        & > * {
+            float:left;
+            width:50%;
+            padding-left:@m;
+            margin-top:@m;
+            .border-box();
+        }
     }
     a {
         display:block;
-        .box-shadow(0 0 4px fade(@black, 20%));
+        position:relative;
+        .border-box();
+        @c1: fade(#888, 20%);
+        @c2: fade(#888, 30%);
+        margin-top:23px;
+        &::before {
+            content:"";
+            display:block;
+            position:absolute;
+            left:0px;
+            right:0px;
+            top:-22px;
+            height:22px;
+            border-top:2px solid @c1;
+            border-left:2px solid @c1;
+            border-right:2px solid @c1;
+            background-color:#f0f0f0;
+            .border-box();
+            .border-radius(7px 7px 0 0);
+        }
+        &::after {
+            content:"";
+            display:block;
+            position:absolute;
+            left:0px;
+            right:0px;
+            top:0px;
+            bottom:0px;
+            border:2px solid @c2;
+            .border-box();
+        }
     }
     img {
         display:block;
